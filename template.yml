@@ -1,0 +1,90 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: Template for Orders Lambda Functions
+
+Resources:
+  ChangeOrderStatusFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: handler.lambda_handler
+      Runtime: python3.13
+      CodeUri: functions/changeOrderStatus/
+      Events:
+        ApiEvent:
+          Type: Api
+          Properties:
+            Path: /changeOrderStatus
+            Method: post
+
+  CreateOrderFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: handler.lambda_handler
+      Runtime: python3.13
+      CodeUri: functions/createOrder/
+      Events:
+        ApiEvent:
+          Type: Api
+          Properties:
+            Path: /createOrder
+            Method: post
+
+  DeleteOrderFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: handler.lambda_handler
+      Runtime: python3.13
+      CodeUri: functions/deleteOrder/
+      Events:
+        ApiEvent:
+          Type: Api
+          Properties:
+            Path: /deleteOrder
+            Method: delete
+
+  GetOrderByIdFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: handler.lambda_handler
+      Runtime: python3.13
+      CodeUri: functions/getOrderById/
+      Events:
+        ApiEvent:
+          Type: Api
+          Properties:
+            Path: /getOrderById
+            Method: get
+
+  ListOrdersFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: handler.lambda_handler
+      Runtime: python3.13
+      CodeUri: functions/listOrders/
+      Events:
+        ApiEvent:
+          Type: Api
+          Properties:
+            Path: /listOrders
+            Method: get
+
+Outputs:
+  ChangeOrderStatusApi:
+    Description: "API Gateway endpoint URL for ChangeOrderStatus function"
+    Value: !Sub "https://hvq4ugy77b.execute-api.us-east-1.amazonaws.com/pedidos/{id}"
+
+  CreateOrderApi:
+    Description: "API Gateway endpoint URL for CreateOrder function"
+    Value: !Sub "https://hvq4ugy77b.execute-api.us-east-1.amazonaws.com/pedidos"
+
+  DeleteOrderApi:
+    Description: "API Gateway endpoint URL for DeleteOrder function"
+    Value: !Sub "https://hvq4ugy77b.execute-api.us-east-1.amazonaws.com/pedidos/{id}"
+
+  GetOrderByIdApi:
+    Description: "API Gateway endpoint URL for GetOrderById function"
+    Value: !Sub "https://hvq4ugy77b.execute-api.us-east-1.amazonaws.com/pedidso/{id}"
+
+  ListOrdersApi:
+    Description: "API Gateway endpoint URL for ListOrders function"
+    Value: !Sub "https://hvq4ugy77b.execute-api.us-east-1.amazonaws.com/pedidos"

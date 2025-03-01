@@ -14,10 +14,13 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
+    - name: Debug working directory
+      run: pwd
+
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
-        python-version: '3.13'
+        python-version: '3.8'
 
     - name: Install dependencies
       run: |
@@ -37,7 +40,7 @@ jobs:
 
     - name: Build SAM application
       run: |
-        sam build
+        sam build --template-file template.yml
 
     - name: Deploy SAM application
       run: |
