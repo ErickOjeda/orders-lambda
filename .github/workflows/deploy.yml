@@ -44,4 +44,8 @@ jobs:
 
     - name: Deploy SAM application
       run: |
-        sam deploy --stack-name --no-confirm-changeset --no-fail-on-empty-changeset --resolve-s3
+           sam deploy \
+            --stack-name orders-lambda-stack \
+            --no-confirm-changeset \
+            --no-fail-on-empty-changeset \
+            --resolve-s3
