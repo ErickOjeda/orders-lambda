@@ -7,7 +7,7 @@ Resources:
     Type: AWS::Serverless::Function
     Properties:
       Handler: handler.lambda_handler
-      Runtime: python3.13
+      Runtime: python3.11
       CodeUri: functions/changeOrderStatus/
       Events:
         ApiEvent:
@@ -20,7 +20,7 @@ Resources:
     Type: AWS::Serverless::Function
     Properties:
       Handler: handler.lambda_handler
-      Runtime: python3.13
+      Runtime: python3.11
       CodeUri: functions/createOrder/
       Events:
         ApiEvent:
@@ -33,7 +33,7 @@ Resources:
     Type: AWS::Serverless::Function
     Properties:
       Handler: handler.lambda_handler
-      Runtime: python3.13
+      Runtime: python3.11
       CodeUri: functions/deleteOrder/
       Events:
         ApiEvent:
@@ -46,7 +46,7 @@ Resources:
     Type: AWS::Serverless::Function
     Properties:
       Handler: handler.lambda_handler
-      Runtime: python3.13
+      Runtime: python3.11
       CodeUri: functions/getOrderById/
       Events:
         ApiEvent:
@@ -59,7 +59,7 @@ Resources:
     Type: AWS::Serverless::Function
     Properties:
       Handler: handler.lambda_handler
-      Runtime: python3.13
+      Runtime: python3.11
       CodeUri: functions/listOrders/
       Events:
         ApiEvent:
